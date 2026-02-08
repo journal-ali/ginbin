@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Ireland | Land of Emeralds and Ancient Legends</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&family=Noto+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --irish-green: #009A44;
+            --emerald-light: #3BB55F;
+            --forest-dark: #004225;
+            --gold: #FFD700;
+            --stone: #8B8C89;
+            --light-beige: #F7F5F2;
+            --white: #FFFFFF;
+            --dark: #2C3E50;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans', sans-serif;
+            background-color: var(--light-beige);
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Merriweather', serif;
+            font-weight: 700;
+            color: var(--forest-dark);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: 0.3s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Utilities */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 35px;
+            border-radius: 50px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            font-family: 'Noto Sans', sans-serif;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--irish-green) 0%, var(--emerald-light) 100%);
+            color: white;
+            box-shadow: 0 4px 15px rgba(0, 154, 68, 0.3);
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(135deg, var(--emerald-light) 0%, var(--irish-green) 100%);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 154, 68, 0.4);
+        }
+
+        .btn-outline {
+            border: 2px solid var(--gold);
+            color: var(--gold);
+            background: transparent;
+        }
+
+        .btn-outline:hover {
+            background-color: var(--gold);
+            color: var(--forest-dark);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--forest-dark);
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--gold);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            margin-bottom: 4rem;
+            color: var(--stone);
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            font-family: 'Noto Sans', sans-serif;
+        }
+
+        /* Header */
+        header {
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            border-bottom: 2px solid var(--irish-green);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Merriweather', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--irish-green);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            color: var(--dark);
+            font-size: 1.05rem;
+            position: relative;
+            padding: 5px 0;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gold);
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+                        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%23009A44"/><path d="M0 50 Q 25 30, 50 50 T 100 50 L 100 100 L 0 100 Z" fill="%233BB55F"/></svg>');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 120px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            line-height: 1.1;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            color: white;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            color: #f0f0f0;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: var(--gold);
+            color: var(--forest-dark);
+            padding: 8px 25px;
+            border-radius: 30px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            margin-bottom: 25px;
+            box-shadow: 0 3px 10px rgba(255, 215, 0, 0.3);
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Features Grid */
+        .features {
+            padding: 100px 0;
+            background-color: var(--white);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 35px;
+            margin-top: 50px;
+        }
+
+        .feature-card {
+            background: var(--white);
+            padding: 40px 30px;
+            border-radius: 15px;
+            text-align: center;
+            border: 2px solid transparent;
+            transition: all 0.4s ease;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gold);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+            border-color: rgba(0, 154, 68, 0.3);
+        }
+
+        .feature-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 25px;
+            background: var(--irish-green);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 20px;
+            color: var(--forest-dark);
+            font-size: 1.8rem;
+        }
+
+        .feature-card p {
+            color: var(--stone);
+            font-size: 1.05rem;
+            line-height: 1.7;
+        }
+
+        /* Attractions */
+        .attractions {
+            padding: 100px 0;
+            background-color: var(--light-beige);
+            position: relative;
+        }
+
+        .attraction-row {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            margin-bottom: 80px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .attraction-row:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .attraction-text {
+            flex: 1;
+        }
+
+        .attraction-visual {
+            flex: 1;
+            height: 400px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.15);
+            position: relative;
+        }
+
+        .attraction-visual svg {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .attraction-row:hover .attraction-visual svg {
+            transform: scale(1.05);
+        }
+
+        .attraction-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+            padding: 25px;
+            color: white;
+        }
+
+        .attraction-overlay h4 {
+            color: white;
+            font-size: 1.8rem;
+            margin-bottom: 8px;
+        }
+
+        .attraction-text h3 {
+            font-size: 2.2rem;
+            margin-bottom: 25px;
+            color: var(--forest-dark);
+            position: relative;
+            display: inline-block;
+        }
+
+        .attraction-text h3::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: var(--gold);
+        }
+
+        .attraction-text p {
+            color: var(--dark);
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 25px;
+        }
+
+        .attraction-link {
+            color: var(--irish-green);
+            font-weight: 700;
+            font-size: 1.05rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .attraction-link svg {
+            width: 16px;
+            height: 16px;
+            fill: var(--irish-green);
+            transition: transform 0.3s ease;
+        }
+
+        .attraction-link:hover svg {
+            transform: translateX(5px);
+        }
+
+        /* Special Section */
+        .special-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%23004225"/><circle cx="20" cy="20" r="2" fill="%23FFD700" opacity="0.3"/><circle cx="80" cy="40" r="3" fill="%233BB55F" opacity="0.4"/><circle cx="40" cy="80" r="2" fill="%23FFD700" opacity="0.2"/></svg>');
+            background-size: cover;
+            background-position: center;
+            padding: 100px 0;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .special-content {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 60px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 25px;
+            backdrop-filter: blur(10px);
+        }
+
+        .special-content h2 {
+            font-size: 3rem;
+            margin-bottom: 25px;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .special-content p {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            line-height: 1.8;
+            color: #f5f5f5;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, var(--forest-dark) 0%, #0d1a14 100%);
+            color: white;
+            padding: 80px 0 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .footer-column h4 {
+            color: var(--gold);
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-column h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: var(--gold);
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .footer-links a {
+            color: #ccc;
+            font-size: 1.05rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--gold);
+        }
+
+        .copyright {
+            color: #888;
+            font-size: 0.95rem;
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            margin-top: 30px;
+        }
+
+        /* Privacy Policy Modal */
+        .privacy-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .privacy-content {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            max-width: 800px;
+            max-height: 80vh;
+            overflow-y: auto;
+            position: relative;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            background: none;
+            border: none;
+            color: #888;
+        }
+
+        .close-btn:hover {
+            color: var(--irish-green);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 968px) {
+            .hero h1 { font-size: 2.8rem; }
+            .hero p { font-size: 1.1rem; }
+            .section-title { font-size: 2.2rem; }
+            .attraction-row, .attraction-row:nth-child(even) {
+                flex-direction: column;
+                text-align: center;
+                gap: 30px;
+            }
+            .attraction-text h3::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            .nav-links { display: none; }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.3rem; }
+            .hero p { font-size: 1rem; }
+            .section-title { font-size: 1.8rem; }
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    🍀 Ireland
+                </div>
+                <div class="nav-links">
+                    <a href="#castles">Castles</a>
+                    <a href="#landscapes">Landscapes</a>
+                    <a href="#history">History</a>
+                    <a href="#culture">Culture</a>
+                </div>
+                <a href="#explore" class="btn btn-primary">Explore</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <div class="hero-badge">Emerald Isle</div>
+            <h1>Welcome to the magic of Ireland</h1>
+            <p>Journey through lands of ancient legends, dramatic landscapes, and timeless traditions. From medieval castles to rugged cliffs - Ireland's beauty will captivate you.</p>
+            <div class="hero-buttons">
+                <a href="#castles" class="btn btn-primary">Ancient Castles</a>
+                <a href="#landscapes" class="btn btn-outline">Natural Wonders</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Grid -->
+    <section class="features" id="explore">
+        <div class="container">
+            <h2 class="section-title">Why visit Ireland?</h2>
+            <p class="section-subtitle">From majestic castles to wild landscapes - Ireland offers a unique blend of history, culture, and natural beauty.</p>
+            
+            <div class="features-grid">
+                <!-- Feature 1 -->
+                <div class="feature-card">
+                    <div class="feature-icon">🏰</div>
+                    <h3>Medieval Castles</h3>
+                    <p>Explore iconic castles like Blarney Castle and Rock of Cashel, where history whispers through ancient stone walls.</p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="feature-card">
+                    <div class="feature-icon">🏔️</div>
+                    <h3>Dramatic Landscapes</h3>
+                    <p>Discover the majestic MacGillycuddy's Reeks, the dramatic Cliffs of Moher, and the wild Atlantic coastline.</p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="feature-card">
+                    <div class="feature-icon">📜</div>
+                    <h3>Rich Heritage</h3>
+                    <p>Experience Ireland's living culture through traditional music, ancient manuscripts, and stories passed down through generations.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Attractions -->
+    <section class="attractions" id="castles">
+        <div class="container">
+            <!-- Blarney Castle -->
+            <div class="attraction-row">
+                <div class="attraction-text">
+                    <h3>Blarney Castle</h3>
+                    <p>Perched on a rocky outcrop in County Cork, Blarney Castle dates back to the 15th century. It's famous for the Blarney Stone, which is said to grant the "gift of the gab" (eloquence) to those who kiss it.</p>
+                    <p>The castle grounds include beautiful gardens, mystical woods, and the Poison Garden containing deadly plants. A remarkable testament to medieval heritage and Irish folklore.</p>
+                    <a href="#" class="attraction-link">Learn more <svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg></a>
+                </div>
+                <div class="attraction-visual">
+                    <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="400" height="400" fill="#009A44"/>
+                        <circle cx="100" cy="100" r="60" fill="#3BB55F"/>
+                        <circle cx="300" cy="200" r="40" fill="#FFD700"/>
+                        <rect x="150" y="250" width="100" height="100" fill="#004225" rx="10"/>
+                        <text x="200" y="300" text-anchor="middle" fill="white" font-size="16" font-family="Arial">Blarney Castle</text>
+                        <path d="M180 350 Q 200 330 220 350" stroke="white" stroke-width="3" fill="none"/>
+                        <path d="M170 340 Q 200 320 230 340" stroke="white" stroke-width="3" fill="none"/>
+                    </svg>
+                    <div class="attraction-overlay">
+                        <h4>Blarney Castle</h4>
+                        <p>County Cork</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Rock of Cashel -->
+            <div class="attraction-row">
+                <div class="attraction-text">
+                    <h3>Rock of Cashel</h3>
+                    <p>Dramatically rising from the plains of Tipperary, the Rock of Cashel is one of Ireland's most spectacular historic sites. This ancient Christian fortress served as the seat of the Kings of Munster for several hundred years.</p>
+                    <p>The complex includes a cathedral, Cormac's Chapel with Romanesque frescoes, a round tower, and a museum. The view from the rock over the Golden Vale is breathtaking.</p>
+                    <a href="#" class="attraction-link">Learn more <svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg></a>
+                </div>
+                <div class="attraction-visual">
+                    <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="400" height="400" fill="#004225"/>
+                        <polygon points="200,50 100,350 300,350" fill="#8B8C89"/>
+                        <rect x="170" y="100" width="60" height="100" fill="#FFD700"/>
+                        <circle cx="200" cy="80" r="15" fill="#FFD700"/>
+                        <path d="M150 350 Q 200 320 250 350" stroke="#3BB55F" stroke-width="5" fill="none"/>
+                        <text x="200" y="250" text-anchor="middle" fill="white" font-size="16" font-family="Arial">Rock of Cashel</text>
+                    </svg>
+                    <div class="attraction-overlay">
+                        <h4>Rock of Cashel</h4>
+                        <p>County Tipperary</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Special Section -->
+    <section class="special-section" id="landscapes">
+        <div class="container">
+            <div class="special-content">
+                <h2>Ireland's Breathtaking Landscapes</h2>
+                <p>From the majestic MacGillycuddy's Reeks to the dramatic Cliffs of Moher, Ireland boasts unparalleled natural beauty. The Wild Atlantic Way stretches over 2,500 km along the western coastline, offering some of the world's most spectacular coastal drives.</p>
+                <p>Explore the rugged beauty of County Kerry with its mountains, lakes, and coastal views. Discover the dramatic landscapes of the Burren, where limestone pavements stretch to the horizon. Every turn reveals a new vista more beautiful than the last.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <div class="logo" style="color: white; font-size: 1.8rem; margin-bottom: 25px;">
+                        🍀 Ireland
+                    </div>
+                    <p style="color: #aaa; line-height: 1.8; margin-bottom: 20px;">
+                        Your comprehensive guide to Ireland's most beautiful and historic places. Discover the magic of the Emerald Isle.
+                    </p>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Explore</h4>
+                    <ul class="footer-links">
+                        <li><a href="#castles">Ancient Castles</a></li>
+                        <li><a href="#landscapes">Natural Wonders</a></li>
+                        <li><a href="#history">Historic Sites</a></li>
+                        <li><a href="#culture">Irish Culture</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Destinations</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Dublin</a></li>
+                        <li><a href="#">Cork</a></li>
+                        <li><a href="#">Galway</a></li>
+                        <li><a href="#">Kerry</a></li>
+                        <li><a href="#">Clare</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Contact</h4>
+                    <ul class="footer-links">
+                        <li><a href="mailto:info@ireland-guide.com">info@ireland-guide.com</a></li>
+                        <li><a href="#" id="privacy-link">Privacy Policy modal</a></li>
+                        <li><a href="privacy-policy.html" id="privacy-link">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Use</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                &copy; 2026 Ireland. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Privacy Modal -->
+    <div class="privacy-modal" id="privacy-modal">
+        <div class="privacy-content">
+            <button class="close-btn" id="close-modal">&times;</button>
+            <h2>Privacy Policy</h2>
+            <p><strong>Authority:</strong> We are committed to the fair processing and protection of personal data and the privacy of individuals who contact us.</p>
+            
+            <h3>What we collect</h3>
+            <p>We collect basic contact information when you submit an inquiry through our contact forms, including name, email address, and phone number if necessary.</p>
+            
+            <h3>How we use this information</h3>
+            <p>We use the collected data to respond to your inquiries, process your requests for bookings or information, and to provide services tailored to the user.</p>
+            
+            <h3>Data sharing</h3>
+            <p>We do not share personal data with third-party agencies except when required by law, or with your consent.</p>
+            
+            <h3>Security</h3>
+            <p>We implement appropriate security measures to protect personal data against loss, misuse, or unauthorized access.</p>
+            
+            <h3>Your rights</h3>
+            <p>You have the right to access, correct, or delete your personal data at any time. If you wish to review your information or have questions regarding your privacy, please contact us using our contact details.</p>
+            
+            <h3>Changes to this policy</h3>
+            <p>This policy may be updated periodically. Significant changes will be announced through our website or by email.</p>
+            
+            <p><strong>Confirmation:</strong> By using this website, you agree to this policy and the terms of use of our site.</p>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const privacyLink = document.getElementById('privacy-link');
+            const privacyModal = document.getElementById('privacy-modal');
+            const closeModal = document.getElementById('close-modal');
+            
+            privacyLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                privacyModal.style.display = 'flex';
+            });
+            
+            closeModal.addEventListener('click', function() {
+                privacyModal.style.display = 'none';
+            });
+            
+            privacyModal.addEventListener('click', function(e) {
+                if (e.target === privacyModal) {
+                    privacyModal.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
